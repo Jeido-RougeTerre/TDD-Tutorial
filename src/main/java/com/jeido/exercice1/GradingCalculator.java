@@ -1,4 +1,4 @@
-package com.jeido;
+package com.jeido.exercice1;
 
 public class GradingCalculator {
     public int score;
