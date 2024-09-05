@@ -3,7 +3,6 @@ package com.jeido.exercice2;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FibTest {
@@ -61,13 +60,7 @@ public class FibTest {
     @Test
     public void testFibWhenGetFibSeries_Range_6_ThenResult_Contains_0_1_1_2_3_5() {
         fib =  new Fib(6);
-        List<Integer> integersAwaited = new ArrayList<>();
-        integersAwaited.add(2);
-        integersAwaited.add(3);
-        integersAwaited.add(5);
-        integersAwaited.add(0);
-        integersAwaited.add(1);
-        integersAwaited.add(1);
+        List<Integer> integersAwaited = List.of(2,3,5,0,1,1);
 
         List<Integer> fibSeries = fib.getFibSeries();
         boolean flag = true;
@@ -81,13 +74,7 @@ public class FibTest {
     @Test
     public void testFibWhenGetFibSeries_Range_6_ThenResult_Contains_0_1_1_2_3_5_ascendOrder() {
         fib =  new Fib(6);
-        List<Integer> integersAwaited = new ArrayList<>();
-        integersAwaited.add(0);
-        integersAwaited.add(1);
-        integersAwaited.add(1);
-        integersAwaited.add(2);
-        integersAwaited.add(3);
-        integersAwaited.add(5);
+        List<Integer> integersAwaited = List.of(0,1,1,2,3,5);
 
         List<Integer> fibSeries = fib.getFibSeries();
         boolean flag = true;
