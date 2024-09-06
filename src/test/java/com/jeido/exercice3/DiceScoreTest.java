@@ -7,17 +7,18 @@ import org.mockito.Mockito;
 
 public class DiceScoreTest {
     private DiceScore ds;
-    private final IDice dice = Mockito.mock(IDice.class);
+    private IDice dice;
 
     @BeforeEach
     public void setup() {
+        dice = Mockito.mock(IDice.class);
         ds = new DiceScore(dice);
     }
 
     @Test
-    public void testDiceScoreWhenGetScore_2_DicesIdenticalRoll_ThenResult_DiceGetRollTimes2Plus10() {
-        Mockito.when(dice.getRoll()).thenReturn(2);
-        int awaited = 2 * 2 + 10;
+    public void testDiceScoreWhenGetScore_2_DicesRolling_5_ThenResult_20() {
+        Mockito.when(dice.getRoll()).thenReturn(5).thenReturn(5);
+        int awaited = 5 * 2 + 10;
 
         int result = ds.getScore();
 
@@ -25,8 +26,8 @@ public class DiceScoreTest {
     }
 
     @Test
-    public void testDiceScoreWhenGetScore_2_DicesRoll6_ThenResult_30() {
-        Mockito.when(dice.getRoll()).thenReturn(6);
+    public void testDiceScoreWhenGetScore_2_DicesRolling_6_ThenResult_30() {
+        Mockito.when(dice.getRoll()).thenReturn(6).thenReturn(6);
         int awaited = 30;
 
         int result = ds.getScore();
@@ -35,8 +36,8 @@ public class DiceScoreTest {
     }
 
     @Test
-    public void testDiceScoreWhenGetScore_2_DicesRoll_ThenResult_Max() {
-        Mockito.when(dice.getRoll()).thenReturn(1, 2);
+    public void testDiceScoreWhenGetScore_2_DicesRolling_1_2_ThenResult_2() {
+        Mockito.when(dice.getRoll()).thenReturn(1).thenReturn(2);
         int awaited = 2;
 
         int result = ds.getScore();
